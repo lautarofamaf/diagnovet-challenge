@@ -15,9 +15,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# 5. Copiamos los requisitos e instalamos dependencias de Python
+# 5. INSTALACIÓN DE LIBRERÍAS PYTHON 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 # 6. Copiamos el resto del código
 COPY . .
